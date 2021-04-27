@@ -1,0 +1,37 @@
+$color-navy: #003;
+$color-white: #fff;
+$color-gray: #ccc;
+$margin-center: 0 auto;
+$btnSize: 1.5rem;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin girdLayout($miniGrid) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($miniGrid, 1fr));
+}
+
+@mixin flexbox($justify, $dir) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  flex-direction: $dir;
+}
+
+@mixin buttonStyle {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: 300ms;
+}
+
+@mixin media-md {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}

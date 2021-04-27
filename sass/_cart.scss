@@ -1,0 +1,176 @@
+.cart {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  transform: translateX(100%);
+  background-color: $color-gray;
+  z-index: 1;
+  transition: 500ms;
+
+  &__overlay {
+    width: 0%;
+    height: 0%;
+    background-color: rgba(226, 80, 80, 0.502);
+  }
+
+  &__container {
+    width: 90%;
+    height: 100%;
+    margin: $margin-center;
+    padding: 1rem 0;
+    @include flexbox(flex-start, column);
+
+    & .close__btn {
+      width: 100%;
+      @include flexbox(flex-start, row);
+
+      & button {
+        @include buttonStyle;
+        margin-bottom: 10px;
+
+        & i {
+          font-size: $btnSize;
+          color: $color-navy;
+        }
+      }
+    }
+
+    & h1 {
+      color: $color-navy;
+      margin-bottom: 10px;
+    }
+
+    & .total__close {
+      @include flexbox(center, column);
+
+      & h3 {
+        color: $color-navy;
+        margin-bottom: 10px;
+      }
+
+      & .clear-btn {
+        @include buttonStyle;
+        background-color: $color-navy;
+        padding: 0.7rem 1.3rem;
+        border-radius: 5px;
+        color: $color-gray;
+        font-weight: 600;
+
+        &:hover {
+          background-color: $color-white;
+          color: $color-navy;
+        }
+      }
+    }
+  }
+}
+
+.cart.show {
+  transform: translateX(0);
+}
+
+.shop__links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  background-color: $color-gray;
+  transform: translateX(-100%);
+  z-index: 1;
+  transition: 500ms;
+
+  & .close__links {
+    width: 95%;
+    margin: $margin-center;
+    @include flexbox(flex-end, row);
+
+    & .close-links-btn {
+      @include buttonStyle;
+
+      & i {
+        color: $color-navy;
+        font-size: $btnSize;
+      }
+    }
+  }
+
+  & h1 {
+    width: 90%;
+    font-size: 1.2rem;
+    color: $color-navy;
+    border-bottom: 2px solid $color-navy;
+    margin-bottom: 20px;
+  }
+
+  & .links {
+    width: 90%;
+    list-style: none;
+
+    & li {
+      width: 70%;
+      margin-bottom: 20px;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid $color-navy;
+
+      & a {
+        text-decoration: none;
+        color: $color-navy;
+      }
+    }
+  }
+}
+
+.shop__links.show {
+  transform: translateX(0);
+}
+
+@include media-md {
+  .cart {
+    background-color: initial;
+    display: flex;
+
+    &__overlay {
+      width: 65%;
+      height: 100%;
+    }
+
+    &__container {
+      width: 35%;
+      background-color: $color-gray;
+      padding: 2rem 3rem;
+
+      & .close__btn button i {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .shop__links {
+    width: 35%;
+    height: 100vh;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    & .close__links .close-links-btn i {
+      color: $color-gray;
+    }
+
+    & h1 {
+      font-weight: 500;
+      font-size: 1.7rem;
+      color: $color-gray;
+      border-bottom: 2px solid $color-gray;
+    }
+
+    & .links li {
+      border-bottom: 2px solid $color-gray;
+
+      & a {
+        color: $color-gray;
+      }
+    }
+  }
+}
