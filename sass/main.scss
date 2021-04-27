@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @import './config';
 @import './cart';
+@import './products';
 
 body {
   width: 100%;
@@ -18,6 +19,7 @@ body {
   height: 3rem;
   background-color: $color-navy;
   @include girdLayout(50px);
+  z-index: 1;
 
   &__sidebar-btn {
     height: 100%;
@@ -25,7 +27,7 @@ body {
     @include flexbox(flex-start, row);
 
     & .btn {
-      @include buttonStyle;
+      @include buttonStyle(transparent);
 
       & .fa-futbol {
         font-size: $btnSize;
@@ -51,7 +53,7 @@ body {
 
     & .btn {
       position: relative;
-      @include buttonStyle;
+      @include buttonStyle(transparent);
 
       & .fa-cart-arrow-down {
         font-size: $btnSize;
@@ -116,9 +118,66 @@ body {
 // --------------HERO SECTION START -----------------
 
 .hero {
-  width: 100%;
-  height: 100%;
-  background: #000;
+  width: 100vw;
+  height: 100vh;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    @include flexbox(center, column);
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & .shop--kits {
+      position: absolute;
+      width: 80%;
+      height: 30%;
+      background-color: rgba(255, 255, 255, 0.5);
+      @include flexbox(space-around, column);
+
+      & h1 {
+        font-size: 1.3rem;
+        color: $color-navy;
+      }
+
+      & button {
+        padding: 0.7rem 1.7rem;
+        @include buttonStyle($color-navy);
+        font-size: 1rem;
+        color: $color-gray;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: transparent;
+          border: 1px solid $color-navy;
+          color: $color-navy;
+        }
+      }
+    }
+  }
 }
 
+@include media-md {
+  .hero {
+    &__img {
+      & .shop--kits {
+        width: 60%;
+        height: 40%;
+
+        & h1 {
+          font-size: 4rem;
+        }
+
+        & button {
+          padding: 1.2rem 4rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
 // --------------HERO SECTION END -----------------

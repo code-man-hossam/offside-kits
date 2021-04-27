@@ -1,4 +1,4 @@
-$color-navy: #003;
+$color-navy: #002;
 $color-white: #fff;
 $color-gray: #ccc;
 $margin-center: 0 auto;
@@ -22,11 +22,11 @@ $btnSize: 1.5rem;
   flex-direction: $dir;
 }
 
-@mixin buttonStyle {
+@mixin buttonStyle($btnBg) {
   cursor: pointer;
   outline: none;
   border: none;
-  background-color: transparent;
+  background-color: $btnBg;
   transition: 300ms;
 }
 
