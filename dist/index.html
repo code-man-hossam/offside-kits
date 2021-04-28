@@ -28,7 +28,7 @@
       <div class="nav__cart">
         <button class="btn" id="cart__btn">
           <i class="fas fa-cart-arrow-down"></i>
-          <span class="amount">0</span>
+          <span class="amount" id="cart-icon-amount">0</span>
         </button>
       </div>
     </nav>
@@ -44,27 +44,9 @@
           </button>
         </div>
         <h1>Your Cart</h1>
-        <div class="cart__item">
-          <div class="item__img">
-            <img src="./images/prod-1.jpg" alt="" />
-          </div>
-          <div class="item__title">
-            <p class="title">paris saint germain</p>
-            <p>$20.99</p>
-            <button class="remove">remove</button>
-          </div>
-          <div class="item__total">
-            <button class="total-btn">
-              <i class="fas fa-chevron-up"></i>
-            </button>
-            <p class="amount" id="aamount">1</p>
-            <button class="total-btn">
-              <i class="fas fa-chevron-down"></i>
-            </button>
-          </div>
-        </div>
+        <!-- <div class="cart__item"></div> -->
         <div class="total__close">
-          <h3>Your Total: <span class="total">$0</span></h3>
+          <h3>Your Total: $<span class="total" id="total-amount">0</span></h3>
           <button class="clear-btn">CLEAR CART</button>
         </div>
       </div>
