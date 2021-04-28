@@ -149,6 +149,10 @@ function cartFunctionality(e) {
   if (e.target.id === 'decrease') {
     let amount = +e.target.parentElement.previousElementSibling.innerText
     amount--
+    let price = +e.target.parentElement.parentElement.previousElementSibling.children[1].innerText.slice(
+      1
+    )
+    adjustPrice(price, false)
     if (amount <= 0) {
       let itemId = e.target.parentElement.parentElement.parentElement.id
       disableButton(itemId, false, 'Add to Cart', '#002')
@@ -156,10 +160,6 @@ function cartFunctionality(e) {
       AddToCartIcon(false)
     } else {
       e.target.parentElement.previousElementSibling.innerText = amount
-      let price = +e.target.parentElement.parentElement.previousElementSibling.children[1].innerText.slice(
-        1
-      )
-      adjustPrice(price, false)
     }
     return
   }
